@@ -1,6 +1,5 @@
 package com.example.test_myrealtrip
 
-import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import org.jsoup.Jsoup
@@ -55,7 +54,7 @@ class DataHandler(rssUrl: URL) : DefaultHandler(){
             val docNews = Jsoup.connect(link).get()
 
             var description :String
-            var img : Bitmap
+            var img : Bitmap?
 
             try {
                 description=
@@ -80,7 +79,7 @@ class DataHandler(rssUrl: URL) : DefaultHandler(){
                 img = BitmapFactory.decodeStream(conn.inputStream)
                 conn.disconnect()
             }catch (e : Exception){
-                img = Bitmap.createBitmap(200,200,Bitmap.Config.ARGB_8888)
+                img = null
             }
 
             itemList.add(Item(title,link, description, img))

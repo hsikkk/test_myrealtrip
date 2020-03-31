@@ -9,7 +9,7 @@ class Item(
     val title : String,
     val link : String,
     val description : String,
-    val img : Bitmap
+    val img : Bitmap?
 
 ) : Serializable{
 

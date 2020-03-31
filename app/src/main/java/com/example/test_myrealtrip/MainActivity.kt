@@ -120,7 +120,10 @@ class MainActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             holder.title.setText(itemList.get(position).title)
             holder.description.setText(itemList.get(position).description)
-            holder.img.setImageBitmap(itemList.get(position).img)
+            if(itemList.get(position).img !=null)
+                holder.img.setImageBitmap(itemList.get(position).img)
+            else
+                holder.img.setImageDrawable(context.getDrawable(R.drawable.img_load_fail))
 
             if(itemList.get(position).description != Load_Fail_Message) {
                 holder.keyword1.setText(itemList.get(position).keywords[0])
